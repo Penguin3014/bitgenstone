@@ -36,9 +36,9 @@
     <script>
         const { createClient } = supabase;
 
-        // TODO: 여기를 실제 프로젝트 값으로 교체
-        const SUPABASE_URL = "YOUR_SUPABASE_URL";
-        const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+        // Supabase 프로젝트 값
+        const SUPABASE_URL = "https://rvuqppvpzggqzpxkneno.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2dXFxcHB2emdncXpweGtuZW5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxOTUwMDIsImV4cCI6MjA3OTc3MTAwMn0.mVq036Ka8te0kgtY84VjVfA8A_GQoW-U32yuN3i27Nw";
 
         const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     </script>
@@ -131,9 +131,46 @@
 
                         <div>
                             <div class="text-xs text-gray-400 bg-gray-700 border border-gray-500 rounded-md p-4 h-32 overflow-y-auto">
-                                <!-- 개인정보 처리방침 내용 (생략 없이 그대로 유지) -->
-                                <!-- [원본 내용 그대로 두면 됨] -->
-                                <!-- ... -->
+                                <p class="font-semibold mb-2">제1조 (개인정보의 처리목적)</p>
+                                <p class="mb-3">
+                                    회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며,
+                                    이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+                                </p>
+                                <ol class="list-decimal list-inside ml-2 mb-3 space-y-1">
+                                    <li>홈페이지 회원 가입 및 관리: 회원 가입 의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 고충 처리 등</li>
+                                    <li>재화 또는 서비스 제공: 물품 배송, 서비스 제공, 계약서 및 청구서 발송, 콘텐츠 제공, 맞춤서비스 제공 등</li>
+                                    <li>고충 처리: 민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리 결과 통보 등</li>
+                                </ol>
+
+                                <p class="font-semibold mt-4 mb-2">제2조 (개인정보의 처리 및 보유기간)</p>
+                                <p class="mb-2">
+                                    회사는 법령에 따른 개인정보 보유·이용 기간 또는 정보주체로부터 동의 받은 기간 내에서 개인정보를 처리·보유합니다.
+                                </p>
+
+                                <p class="font-semibold mt-4 mb-2">제3조(정보주체의 권리와 행사 방법)</p>
+                                <p class="mb-3">정보주체는 언제든지 개인정보 열람, 정정·삭제, 처리정지를 요구할 수 있습니다.</p>
+
+                                <p class="font-semibold mt-4 mb-2">제4조(개인정보의 파기)</p>
+                                <p class="mb-3">
+                                    회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.
+                                </p>
+
+                                <p class="font-semibold mt-4 mb-2">제5조(개인정보의 안전성 확보조치)</p>
+                                <p class="mb-3">
+                                    회사는 내부관리계획 수립·시행, 접근권한 관리, 암호화, 보안프로그램 설치 등 안전성 확보에 필요한 조치를 취하고 있습니다.
+                                </p>
+
+                                <p class="font-semibold mt-4 mb-2">제6조(권익침해 구제 방법)</p>
+                                <p class="mb-1">정보주체는 개인정보 침해에 대한 피해구제, 상담 등을 아래 기관에 문의할 수 있습니다.</p>
+                                <ol class="list-decimal list-inside ml-2 space-y-1">
+                                    <li>개인정보 분쟁조정위원회 : (국번없이) 1833-6972</li>
+                                    <li>개인정보침해신고센터 : (국번없이) 118</li>
+                                    <li>대검찰청 사이버수사과 : (국번없이) 1301</li>
+                                    <li>경찰청 사이버범죄수사국 : (국번없이) 182</li>
+                                </ol>
+
+                                <p class="font-semibold mt-4 mb-2">제7조(개인정보 처리방침 시행 및 변경)</p>
+                                <p class="mb-0">이 개인정보 처리방침은 2024.12.21부터 적용됩니다.</p>
                             </div>
                             <div class="flex items-center mt-3">
                                 <input id="consent" name="consent" type="checkbox" required class="h-4 w-4 rounded border-gray-600 text-green-600 focus:ring-green-500 bg-gray-700">
@@ -224,7 +261,7 @@
                 .from('contact_submissions')
                 .insert({
                     name,
-                    phone: null,          // 필요하면 연락처 필드 따로 추가해서 넣기
+                    phone: null,
                     email,
                     message,
                     status: 'new'
